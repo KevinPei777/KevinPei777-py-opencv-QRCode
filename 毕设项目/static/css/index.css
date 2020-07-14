@@ -1,0 +1,247 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+
+/*---头部---*/
+header {
+    background-color: #3F3F3F;
+    height: 90px;
+    position: relative;
+}
+
+/*--灰度条--*/
+header:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    content: '';
+    background: #d6d6d6;
+}
+
+header > .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*--Logo--*/
+header > .container > .logo {
+    height: 70px;
+    width: 250px;
+    float: left;
+    margin-left: 150px;
+    margin-top: 5px;
+    color: lemonchiffon;
+    font-family: "微软雅黑";
+    font-size: 35px;
+}
+
+a {
+    text-decoration: none;
+    font-family: "微软雅黑";
+}
+
+/*--导航--*/
+nav {
+    float: left;
+}
+
+nav a {
+    font-size: 20px;
+    line-height: 100px;
+    display: block;
+    float: left;
+    width: 130px;
+    height: 83px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+}
+
+nav > a:hover,
+nav > a.active {
+    background-color: black;
+    padding-bottom: 6px;
+}
+
+/*--中间部分--*/
+section {
+    border: 1px solid black;
+    height: 560px;
+    width: 70%;
+    border: 1px solid lightcyan;
+    margin: 5px auto;
+    border-radius: 3px;
+}
+
+/*--侧边栏--*/
+section > aside {
+    border-radius: 3px;
+    float: left;
+    width: 9%;
+    height: 560px;
+    margin-top: 0px;
+    background-color: #EEEEEE;
+}
+
+section > aside > .container {
+    height: 100%;
+    margin-top: 50px;
+    border-top: 2px solid bisque;
+}
+
+section > aside > .container > a {
+    border-radius: 5px;
+    display: block;
+    height: 40px;
+    border-bottom: 2px solid bisque;
+    background-color: #EEEEEE;
+    color: cornflowerblue;
+    font-family: "微软雅黑";
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+section > aside > .container > a:hover {
+    background-color: white;
+}
+
+section > aside > .container > a.active {
+    background-color: white; /*margin-top: 50px;*/
+}
+
+/*--左边内容--*/
+section > article {
+    float: left;
+    width: 46%;
+    height: 100%;
+}
+section > article >#but_text{
+    font-family: "微软雅黑";
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 100px;
+    height: 40px;
+    width: 130px;
+    color: white;
+    background-color: cornflowerblue; border-radius: 5px;
+}
+section > article > hgroup {
+    height: 85px;
+}
+
+section > article > hgroup > h2 {
+    margin-left: 30px;
+    float: left;
+    font-family: "微软雅黑";
+    color: grey;
+    line-height: 70px;
+}
+
+section > article > hgroup > span {
+    margin-right: 50px;
+    line-height: 100px;
+    float: right;
+    font-size: 13px;
+    color: darkgray;
+}
+
+/*section > article > .wenben{height:300px; border: 1px solid lightblue;margin-top:10px ;}*/
+/*section > article > input{margin-left: 20px;}*/
+section > article > textarea {
+    width: 80%;
+    height: 20%;
+    margin-top: -40px;
+    margin-left: 30px;
+}
+
+section > article > .textarea_counter {
+    color: gray;
+    font-size: 15px;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+/*--右边内容--*/
+section > .r_article {
+    float: right;
+    width: 40%;
+    height: 100%;
+    background-color: #F6F6F6;
+}
+
+section > .r_article > p{
+    font-family: "微软雅黑";
+    font-size: 15px;
+    margin-left: 150px;
+}
+
+section > .r_article > hgroup {
+    background-color: white;
+    border-radius: 4px;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    border: 1px solid bisque;
+    box-shadow: 3px 4px 5px #C1C1C1;
+}
+
+section > .r_article > .box {
+    margin: 40px auto;
+    border: 1px solid bisque;
+    width: 350px;
+    height: 120px;
+    border-radius: 4px;
+    box-shadow: 3px 4px 5px #C1C1C1;
+}
+
+/*--尾部--*/
+footer {
+    position: relative;
+    background: #000;
+    margin-top: 10px;
+}
+
+footer:before {
+    position: absolute;
+    z-index: -1;
+    top: -6px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    content: '';
+    background: #d6d6d6;
+}
+
+footer > .container {
+    width: 1200px;
+    height: 65px;
+    margin: 0 auto;
+}
+
+footer > .container > p {
+    line-height: 65px;
+    float: left;
+    font-family: "微软雅黑";
+    color: lemonchiffon;
+}
+
+footer > .container > span {
+    float: right;
+    margin: 15px 40px;
+}
+
+footer > .container > span > img {
+    margin-left: 5px;
+    opacity: .7;
+}
+
+footer > .container > span > img:hover {
+    opacity: 1;
+    cursor: pointer;
+}

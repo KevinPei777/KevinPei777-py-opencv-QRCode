@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/box5.css" %}">
+{% endblock %}
+{% block custom_js %}
+    <script src="{% static 'js/box.js' %}" type="text/javascript"></script>
+
+    <script>
+        $(function FileCode(){
+            $file = $("#file_upload");
+            $('#but_file').click(function () {
+                var formData = new FormData();
+                formData.append('file', $('#file_upload')[0].files[0]);
+                $.ajax({
+                    url:"/index/file_code/",
+                    type:"POST",
+                    cache:false,
+                    data:formData,
+                    processData:false,
+                    contentType:false,
+                    success:function(data){
+                        $("#ImagePic").attr("src", "data:image/jpeg;base64," + data.image);
+                        $("#DownloadCode").attr("href", "data:image/jpeg;base64," + data.image);
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content_left %}
+    <div class="box5">
+        <input type="file" name="file" id="file_upload" formaction="/index/file_code/" value="" formmethod="post" formenctype="multipart/form-data"/>
+{#        <textarea name="" rows="" cols="" style="overflow: hidden;" placeholder="给音视频加点 描述"></textarea>#}
+        <input type="button" id="but_file" value="生成活码" style="cursor: pointer;"/>
+    </div>
+{% endblock %}

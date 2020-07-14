@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/box2.css" %}">
+{% endblock %}
+{% block custom_js %}
+    <script src="{% static 'js/box.js' %}" type="text/javascript"></script>
+    <script>
+        function UrlCode() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '/index/url_code/?', true);
+            var _url = document.getElementById("the_url").value;
+            var paramas = 'url=' + _url;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    data = JSON.parse(xhr.responseText);
+                    if (data.msg == 'success') {
+                        $("#ImagePic").attr("src", "data:image/jpeg;base64," + data.image);
+                        $("#DownloadCode").attr("href", "data:image/jpeg;base64," + data.image);
+                    }
+                    else{
+                        alert("请输入正确格式的网址");
+                    }
+                }
+            };
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(paramas);
+        }
+    </script>
+{% endblock %}
+{% block content_left %}
+    <div class="box2">
+        <input type="text" name="" id="the_url" value="" placeholder="http://"/>
+        <input type="button" name="" onclick="UrlCode()" id="but" value="生成二维码" style="cursor: pointer;"/>
+    </div>
+{% endblock %}

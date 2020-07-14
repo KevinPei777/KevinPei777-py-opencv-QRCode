@@ -1,0 +1,43 @@
+.box3 {
+    /*margin: auto;*/
+    /*width: 200px;*/
+    /*height: 380px;*/
+    float: left;
+    width: 46%;
+    height: 100%;
+    /*border: 1px solid black;*/
+}
+
+.box3 > #_image {
+    margin-top: 80px;
+    margin-left:20px;
+    width: 500px;
+    height: 40px;
+}
+
+.box3 > #pic {
+    margin-top: 80px;
+    margin-left:20px;
+    width: 500px;
+    height: 180px;
+    border: 1px solid lightgray;
+    background-size: cover;
+}
+
+/*.box3 > textarea {*/
+    /*width: 300px;*/
+    /*height: 80px;*/
+    /*margin-top: 30px;*/
+/*}*/
+
+.box3 > #but_pic {
+    font-family: "楷体";
+    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 200px;
+    height: 40px;
+    width: 110px;
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 4px;
+}

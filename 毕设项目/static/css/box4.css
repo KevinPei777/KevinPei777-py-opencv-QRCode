@@ -1,0 +1,62 @@
+.box4{
+    /*margin: auto;*/
+    /*width: 700px;*/
+    /*height: 600px;*/
+    border: 1px solid bisque;
+    float: left;
+    width: 46%;
+    height: 100%;
+}
+
+.box4 > h1 {
+    margin-left: 300px;
+    margin-bottom: 20px;
+}
+
+/*.box4 > .container{width: 100px; height: 100px;  margin-left: 90px;margin-top: 50px;}*/
+.box4 > #_portrait {
+    width: 100px;
+    height: 100px;
+}
+
+.box4 > #pic_portrait {
+    border-radius: 50%;
+    margin-left: 90px;
+    margin-top: 50px;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+}
+
+.box4 > form {
+    margin-top: -70px;
+    margin-left: 270px;
+    width: 400px;
+    height: 400px;
+}
+
+.box4 > form > label {
+    font-family: "楷体";
+    font-size: 20px;
+}
+
+.box4 > form > input {
+    margin-bottom: 20px;
+    width: 200px;
+}
+
+.box4 > form > span {
+    color: red;
+    font-size: 100%;
+}
+
+.box4 > #butt {
+    font-family: "楷体";
+    font-size: 18px;
+    margin-top: -10px;
+    margin-left: 300px;
+    height: 40px;
+    width: 110px;
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 4px; }

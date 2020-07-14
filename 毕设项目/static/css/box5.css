@@ -1,0 +1,34 @@
+.box5{
+    /*margin: auto;*/
+    /*width: 500px;*/
+    /*height: 300px;*/
+    float: left;
+    width: 46%;
+    height: 100%;
+    /*border: 1px solid black;*/
+}
+
+.box5 > #_file {
+    margin-top: 100px;
+    margin-left:40px;
+    width: 500px;
+    height: 60px;
+    border: 1px solid black;
+}
+
+/*.box5 > textarea {*/
+    /*margin-top: 40px;*/
+    /*width: 500px;*/
+    /*height: 70px;*/
+/*}*/
+
+.box5 > #but_file {
+    font-family: "楷体";
+    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 200px;
+    height: 40px;
+    width: 110px;
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 4px;}

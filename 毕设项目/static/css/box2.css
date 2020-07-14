@@ -1,0 +1,31 @@
+.box2 {
+    /*border: 1px solid black;*/
+    /*margin-top: 20px;*/
+    /*margin-left: 130px;*/
+    /*margin-right: 20px;*/
+    /*width: 200px;*/
+    /*height: 200px;*/
+    float: left;
+    width: 46%;
+    height: 100%;
+}
+
+.box2 > #the_url {
+    border: 1px solid black;
+    margin-top: 100px;
+    margin-left:50px;
+    height: 50px;
+    width: 360px;
+    font-size: 25px;
+}
+
+.box2 > #but {
+    /*border: 1px solid black;*/
+    font-family: "微软雅黑";
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 150px;
+    height: 40px;
+    width: 130px;
+    color: white;
+    background-color: cornflowerblue; border-radius: 5px; }

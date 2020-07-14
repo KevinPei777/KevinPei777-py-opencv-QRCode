@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/box3.css" %}">
+{% endblock %}
+{% block custom_js %}
+    <script src="{% static 'js/box.js' %}" type="text/javascript"></script>
+    <script>
+        function PicCode() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '/index/pic_code/?', true);
+            var _pic = document.getElementById('pic');
+            var paramas = 'src=' + _pic.src;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    data = JSON.parse(xhr.responseText);
+                    console.info(data)
+                    if (data.msg == 'fail') {
+                        alert('请选择正确格式的图片！')
+                    }
+                    else {
+                        $("#ImagePic").attr("src", "data:image/jpeg;base64," + data.image);
+                        $("#DownloadCode").attr("href", "data:image/jpeg;base64," + data.image);
+                    }
+                }
+            };
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(paramas);
+        }
+    </script>
+{% endblock %}
+{% block content_left %}
+    <div class="box3">
+        <input type="file" name="" id="_image" style="display:none;" value="" onchange="showPicture(this)"/>
+
+        <img id="pic" src="{% static 'img/pic.png' %}" style="cursor: pointer;" onclick="click_input()"/>
+        <input type="button" name="but_pic" id="but_pic" onclick="PicCode()" value="生成图文码" style="cursor: pointer;"/>
+    </div>
+{% endblock %}

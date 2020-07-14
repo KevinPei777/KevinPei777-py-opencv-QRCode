@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8"/>
+    {% block custom_css %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="{% static 'js/CountWords.js' %}" type="text/javascript"></script>
+    {% block custom_js %}
+        <script>
+            function TextCode() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/index/text_code/?", true);
+                var _content = document.getElementById("_text").value;
+                var paramas = 'content=' + _content;
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        if (_content == '') {
+                            alert('请不要输入空白数据！')
+                        }
+                        else {
+                            data = JSON.parse(xhr.responseText);
+                            $("#ImagePic").attr("src", "data:image/jpeg;base64," + data.image);
+                            $("#DownloadCode").attr("href", "data:image/jpeg;base64," + data.image);
+                        }
+
+                    }
+                };
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send(paramas);
+            }
+        </script>
+    {% endblock %}
+    <title>{% block title %}
+        二维码毕业设计
+    {% endblock %}</title>
+    <link rel="icon" href="{% static 'img/logo.icon' %}" type="image/x-icon"/>
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <div class="logo"><a href="{% url 'index:index' %}"><img src="/static/img/logo.jpg" height="70px" width="70px"></a>二维码生成
+        </div>
+        <nav><!--导航-->
+            <a {% if request.path|slice:'6' == '/index' %}class="active"{% endif %}
+               href="{% url 'index:index' %}">二维码生成</a>
+            <a {% if request.path|slice:'12' == '/distinguish' %}class="active"{% endif %}
+               href="{% url 'distinguish:distinguish' %}">二维码识别</a>
+            <a {% if request.path|slice:'9' == '/beautify' %}class="active"{% endif %}
+               href="{% url 'beautify:beautify' %}">二维码美化</a>
+        </nav>
+    </div>
+</header>
+<section>
+    {% block aside %}
+        <aside><!--侧边栏-->
+            <div class="container">
+                <a href="{% url 'index:index' %}" {% if request.path == '/index/' %}class="active"{% endif %}>文本</a>
+                <a href="{% url 'index:url' %}"
+                   {% if request.path|slice:'10' == '/index/url' %}class="active"{% endif %}>网址</a>
+                <a href="{% url 'index:pic' %}"
+                   {% if request.path|slice:'10' == '/index/pic' %}class="active"{% endif %}>图片</a>
+                <a href="{% url 'index:files' %}"
+                   {% if request.path|slice:'12' == '/index/files' %}class="active"{% endif %}>文件</a>
+            </div>
+        </aside>
+    {% endblock %}
+
+    {% block content_left %}
+        <article>
+            <hgroup>
+                <h2>输入文字</h2><span>即时输入即时生成！</span>
+            </hgroup>
+
+            <textarea class="text" id="_text" onkeyup="wordStatic(this);" maxlength="300" onclick="changeTextarea()"
+                      autocomplete="off" style="overflow: hidden" placeholder="支持文本、网址和电子邮箱"></textarea>
+            <div class="textarea_counter">已输入字数：<span id="num">0</span>/300</div>
+            <input type="button" name="" id="but_text" onclick="TextCode()" value="生成二维码" style="cursor: pointer;"/>
+        </article>
+    {% endblock %}
+
+    {% block content_right %}
+        <div class="r_article">
+            <p>点击图片进行下载</p>
+            <hgroup>
+
+                <a id="DownloadCode" href="{% static 'img/henu.jpg' %}" download="QRCode">
+                    <img id="ImagePic" src="{% static 'img/henu.jpg' %}" width="300px" height="300px">
+                </a>
+            </hgroup>
+            <div class="box">
+                <P id="final"></P>
+            </div>
+        </div>
+    {% endblock %}
+</section>
+
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <p>Copyright © 河南大学软件学院裴鑫铭.</p>
+            <span>
+				<img src="../static/img/weichat.png">
+				<img src="../static/img/sina.png">
+				<img src="../static/img/qq.png">
+			</span>
+        </div>
+    </footer>
+{% endblock %}
+</body>
+</html>
